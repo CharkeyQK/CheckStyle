@@ -22,7 +22,7 @@
     <property name="haltOnException" value="false"/>
     <!-- 检查文件的长度（行） default max=2000 -->
     <module name="FileLength">
-        <property name="max" value="1000"/>
+        <property name="max" value="500"/>
     </module>
 
     <!-- 包信息检查  是否有 package-info.java 文件 -->
@@ -230,6 +230,14 @@
         <module name="RequireThis"/>
         <!--boolean 检查， 如 if (b == true), b || true, !false 糟糕代码-->
         <module name="SimplifyBooleanExpression"/>
+        <!--Restricts nested for blocks to a specified depth (default = 1).-->
+        <module name="NestedForDepth"/>
+        <!--Restricts nested if-else blocks to a specified depth (default = 1).-->
+        <module name="NestedIfDepth"/>
+        <!--Restricts nested try-catch-finally blocks to a specified depth (default = 1).-->
+        <module name="NestedTryDepth">
+            <property name="max" value="0"/>
+        </module>
         <!--boolean 返回值检查  如
                    if (valid())
                       return false;
@@ -249,6 +257,9 @@
             <property name="max" value="180"/>
             <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
         </module>
+        <module name="ExecutableStatementCount">
+            <property name="max" value="50"/>
+        </module>
         <!-- 方法长度 max default 150行 -->
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF"/>
@@ -264,7 +275,7 @@
         <module name="RedundantModifier"/>
         <!-- Checks the number of parameters of a method or constructor. max default 7个. -->
         <module name="ParameterNumber">
-            <property name="max" value="19"/>
+            <property name="max" value="5"/>
         </module>
 
         <!-- ********        文件头检查        ******** -->
